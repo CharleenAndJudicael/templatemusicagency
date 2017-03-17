@@ -1,0 +1,22 @@
+{
+    "css": "source/assets/css/*.css",
+    "html": [
+        "./source/index.html"
+    ],
+    "img": "./source/assets/img/*",
+    "translate": "./node_modules/angular-translate/dist/angular-translate.min.js",
+    "libsCss": [
+        "./node_modules/bootstrap/dist/**/*"
+    ],
+    "browserifyPath": "./source/app.js",
+    "js": [
+        "./source/*.js",
+        "./source/**/*.js"
+    ],
+    "public": "./public/",
+    "components": [
+        "./source/components/**/*.js",
+        "./source/components/**/*.html"
+    ],
+    "commun": "./source/commun/**/*js"
+}
