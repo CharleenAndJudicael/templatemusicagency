@@ -1,0 +1,171 @@
+.slider-container
+  width: 100%
+  height: auto
+  position: relative
+  z-index: 1
+  padding: 0
+  .slider
+    width: 100%
+    height: auto
+    position: relative
+    .caption
+      &.title
+        font-family: 'Montserrat'
+        font-style: normal
+        font-weight: 700
+        font-size: 60px
+        line-height: 60px
+        color: #000
+        text-transform: uppercase
+      &.paragraph
+        font-family: 'Montserrat'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 24px
+        color: #000
+        text-transform: uppercase
+      &.button-rev
+        display: block
+        a
+          display: inline-block
+          font-family: 'Montserrat'
+          font-style: normal
+          font-weight: 400
+          font-size: 12px
+          line-height: 12px
+          color: #fff
+          text-decoration: none
+          text-align: center
+          -moz-border-radius: 21px
+          -webkit-border-radius: 21px
+          border-radius: 21px
+          background: #6018d5
+          -webkit-transition: all 0.2s linear
+          -moz-transition: all 0.2s linear
+          -ms-transition: all 0.2s linear
+          -o-transition: all 0.2s linear
+          transition: all 0.2s linear
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100
+          background: #1e5799
+          /* Old browsers
+          background: -moz-linear-gradient(left, #6018d5 0%, #7b37e9 100%)
+          /* FF3.6+
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%, #6018d5), color-stop(100%, #7b37e9))
+          /* Chrome,Safari4+
+          background: -webkit-linear-gradient(left, #6018d5 0%, #7b37e9 100%)
+          /* Chrome10+,Safari5.1+
+          background: -o-linear-gradient(left, #6018d5 0%, #7b37e9 100%)
+          /* Opera 11.10+
+          background: -ms-linear-gradient(left, #6018d5 0%, #7b37e9 100%)
+          /* IE10+
+          background: linear-gradient(to right, #6018d5 0%, #7b37e9 100%)
+          /* W3C
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@base-color', endColorstr='lighten(@base-color, 10%)', GradientType=1)
+          /* IE6-9
+          padding: 15px 25px
+          -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5)
+          -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5)
+          box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5)
+          i
+            display: inline-block
+            font-size: 12px
+            line-height: 12px
+          &:hover
+            opacity: .9
+        &.dark a
+          opacity: 1
+          background: #454545
+          &:hover
+            background: #333333
+        &.visible-xs
+          display: none
+          a
+            font-size: 22px
+            line-height: 22px
+            -moz-border-radius: 21px
+            -webkit-border-radius: 21px
+            border-radius: 21px
+            padding: 25px 35px
+            i
+              display: inline-block
+              font-size: 22px
+              line-height: 22px
+  .tparrows
+    width: 50px !important
+    height: 70px !important
+    background: #fff !important
+    background: rgba(255, 255, 255, 0.8) !important
+    color: #1a1a1a
+    position: absolute !important
+    top: 50% !important
+    margin-top: -35px !important
+    -moz-border-radius: 0
+    -webkit-border-radius: 0
+    border-radius: 0
+    -webkit-transition: all 0.2s linear
+    -moz-transition: all 0.2s linear
+    -ms-transition: all 0.2s linear
+    -o-transition: all 0.2s linear
+    transition: all 0.2s linear
+    &:before
+      font-family: 'Flaticon'
+      font-style: normal
+      font-weight: normal
+      speak: none
+      display: inline-block
+      text-decoration: inherit
+      margin-right: 0
+      font-size: 20px
+      line-height: 70px
+      text-align: center
+      width: 50px
+    &:hover
+      background: #fff !important
+      color: #6018d5
+    &.tp-leftarrow
+      left: 0 !important
+      &:before
+        content: '\e002' !important
+    &.tp-rightarrow
+      right: 0 !important
+      &:before
+        content: '\e003' !important
+
+@media screen and (max-width: 767px)
+  .slider-container
+    margin-top: 52px
+
+@media screen and (max-width: 767px)
+  .slider-container .slider .caption.title
+    font-size: 80px
+    line-height: 80px
+    padding-top: 40px
+
+@media screen and (max-width: 1199px)
+  .slider-container .slider .caption.paragraph
+    font-size: 24px
+    line-height: 24px
+
+@media screen and (max-width: 767px)
+  .slider-container .slider .caption.paragraph
+    display: none
+
+@media screen and (max-width: 767px)
+  .slider-container .slider .caption.button-rev.visible-xs a
+    font-size: 32px
+    line-height: 32px
+    -moz-border-radius: 21px
+    -webkit-border-radius: 21px
+    border-radius: 21px
+    padding: 35px 45px
+    i
+      display: inline-block
+      font-size: 32px
+      line-height: 32px
+
+@media screen and (max-width: 1199px)
+  .slider-container .slider .caption.button-rev
+    display: none
+    &.visible-xs
+      display: inline-block

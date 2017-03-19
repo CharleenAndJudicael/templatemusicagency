@@ -1,0 +1,189 @@
+.navigation-bar 
+  display: block
+  position: fixed
+  z-index: 10000
+  top: 0
+  left: 0
+  width: 100%
+  padding: 30px 0
+  -webkit-transition: all 0.2s linear
+  -moz-transition: all 0.2s linear
+  -ms-transition: all 0.2s linear
+  -o-transition: all 0.2s linear
+  transition: all 0.2s linear
+
+.navigation-bar.scroll-BG 
+  background: #fff
+  padding: 10px 0
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.05)
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.05)
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.05)
+
+.navigation-bar .logo-container a 
+  text-decoration: none
+
+.navigation-bar .logo-container a img 
+  float: left
+  padding-right: 5px
+
+.navigation-bar .logo-container a span 
+  font-family: 'Montserrat'
+  font-style: normal
+  font-weight: 700
+  font-size: 24px
+  line-height: 54px
+  color: #000
+  text-transform: uppercase
+
+.navigation-bar .nav-container 
+  padding: 0
+
+.navigation-bar .nav-container ul 
+  display: block
+  text-align: center
+  padding: 0
+  margin: 0
+
+.navigation-bar .nav-container ul li 
+  display: inline-block
+
+.navigation-bar .nav-container ul li a 
+  text-decoration: none
+  text-transform: uppercase
+  font-size: 14px
+  line-height: 54px
+  color: #000
+  padding: 0 15px
+  -webkit-transition: all 0.2s linear
+  -moz-transition: all 0.2s linear
+  -ms-transition: all 0.2s linear
+  -o-transition: all 0.2s linear
+  transition: all 0.2s linear
+
+
+.navigation-bar .nav-container ul li a:hover 
+  color: #6018d5
+
+.navigation-bar .nav-container ul li.active a 
+  color: #6018d5
+
+.navigation-bar .nav-container ul.fade 
+  display: block;
+  position: absolute;
+  top: 53px
+  right: 15px
+  width: 200px
+  background: #fff
+  border: 1px solid #e6e6e6
+
+.navigation-bar .nav-container ul.fade li 
+  display: block
+  border-bottom: 1px solid #e6e6e6
+
+.navigation-bar .nav-container ul.fade li:last-child 
+  border-bottom: none
+
+.navigation-bar .nav-container ul.fade li a 
+  display: block
+  text-transform: uppercase
+  font-size: 14px
+  line-height: 14px
+  padding: 10px 15px
+
+.navigation-bar .nav-container ul.fade li a:hover 
+  background: #fafafa
+
+.navigation-bar .nav-container ul.fade li.active a 
+  color: #6018d5
+
+.navigation-bar .cloud-container 
+  text-align: right
+
+.navigation-bar .cloud-container a 
+  display: inline-block
+  text-decoration: none
+  font-size: 18px
+  line-height: 54px
+  color: #000
+  -webkit-transition: all 0.2s linear
+  -moz-transition: all 0.2s linear
+  -ms-transition: all 0.2s linear
+  -o-transition: all 0.2s linear
+  transition: all 0.2s linear
+
+.navigation-bar .cloud-container a:hover 
+  color: #6018d5
+
+.navigation-bar .cloud-container i.menu-btn 
+  display: none
+  font-size: 18px
+  line-height: 54px
+  color: #000
+  cursor: pointer
+  -webkit-transition: all 0.2s linear
+  -moz-transition: all 0.2s linear
+  -ms-transition: all 0.2s linear
+  -o-transition: all 0.2s linear
+  transition: all 0.2s linear
+
+.navigation-bar .cloud-container i.menu-btn:hover 
+  color: #6018d5
+
+.navigation-bar .cloud-container i.menu-btn.close-icon:before 
+  content: '\e024'
+
+@media screen and (max-width: 991px) 
+  .navigation-bar 
+    padding: 15px 0
+  
+  .navigation-bar.scroll-BG 
+    background: #fff
+    padding: 5px 0
+  
+  .navigation-bar .nav-container ul 
+    display: none
+  
+  .navigation-bar .nav-container ul.fade 
+    top: 62px
+  
+  .navigation-bar .cloud-container a 
+    padding-right: 10px
+  
+  .navigation-bar .cloud-container i.menu-btn 
+    display: inline-block
+  
+
+@media screen and (max-width: 767px) 
+  .navigation-bar 
+    padding: 10px 0
+    background: #fff
+  
+  .navigation-bar.scroll-BG 
+    background: #fff
+    padding: 10px 0
+  
+  .navigation-bar .logo-container a img 
+    height: 30px
+    width: auto
+  
+  .navigation-bar .logo-container a span 
+    font-family: 'Montserrat'
+    font-style: normal
+    font-weight: 700
+    font-size: 18px
+    line-height: 30px
+  
+  .navigation-bar .nav-container ul 
+    display: none
+  
+  .navigation-bar .nav-container ul.fade 
+    top: 42px
+  
+  .navigation-bar .cloud-container a 
+    font-size: 18px
+    line-height: 30px
+    
+  .navigation-bar .cloud-container i.menu-btn 
+    font-size: 18px
+    line-height: 30px
+  
