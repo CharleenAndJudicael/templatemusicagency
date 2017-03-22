@@ -10,7 +10,7 @@
     ],
     "browserifyPath": "./source/app.js",
     "js": [
-        "./source/*.js"
+        "./source/js/*.js"
         , "./source/**/*.js"
     ],
     "public": "./public/",

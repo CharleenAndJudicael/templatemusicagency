@@ -32,8 +32,8 @@ var context = {
 gulp.task("connect", function () {
     plugins.connect.server({
         /** Default path */
-        root: "public"
-        , port: 10080
+        root: "public",
+        port: 10080
     });
 });
 gulp.task("minify-css", function () {
@@ -45,16 +45,16 @@ var server = plugins.jsonSrv.create();
  */
 gulp.task("html", function () {
     log("build html");
-    return gulp.src(paths.html).pipe(gulp.dest('public'));
+    return gulp.src(paths.html).pipe(gulp.dest('public')).pipe(notify("deplacement html"));
 });
 /** Librairies css */
 gulp.task("libs-css", function () {
     log("Build css librairies");
-    return gulp.src(paths.libsCss).pipe(gulp.dest(paths.public + '/assets/bootstrap/'));
+    return gulp.src(paths.libsCss).pipe(gulp.dest(paths.public + '/assets/bootstrap/')).pipe(notify("bootstrap"));
 });
 var opts = {
-    entries: [paths.browserifyPath]
-    , debug: true
+    entries: [paths.browserifyPath],
+    debug: true
 };
 var b = watchify(browserify(opts));
 gulp.task('browserify', bundle);
@@ -82,7 +82,7 @@ gulp.task('commun', function () {
 /** move img */
 gulp.task("img", function () {
     log("move img");
-    return gulp.src(paths.img).pipe(gulp.dest(paths.public + '/assets/img/'));
+    return gulp.src(paths.img).pipe(gulp.dest(paths.public + '/assets/img/')).pipe(notify("Déplacement images"));
 });
 /** move translate */
 gulp.task("translate", function () {
@@ -92,8 +92,8 @@ gulp.task("translate", function () {
 /*
  * Build application task
  */
-gulp.task('build', ['connect', 'jquery', 'sass', 'libs-css', 'html', 'img'])
-    , function () {
+gulp.task('build', ['connect', 'jquery', 'sass', 'libs-css', 'minify-js', 'html', 'img']),
+    function () {
         gulp.start("connect");
     };
 /*gulp.task('build', ['connect','minify-css', 'libs-css', 'browserify', 'html','img','translate','commun','components']),function(){        
@@ -159,6 +159,16 @@ gulp.task('PLUGINS_JS', function () {
         .pipe(gulp.dest(paths.jsPluginOut)).pipe(notify('[PLUGINS_JS][OUT JS] ' + paths.jsPluginOut));
     //gutil.log('[OUT SOURCE MAP] ' + paths.jsPluginOut);
 });
+
+gulp.task("minify-js", function () {
+    return gulp.src(paths.js)
+        .pipe(uglify({
+            mangle: false
+        }))
+        .pipe(gulp.dest("public/assets/js/")).pipe(notify("minify des fichiers js"));
+});
+
+
 /***
  *
  * jquerry  Task.
@@ -170,7 +180,7 @@ gulp.task('jquery', function () {
     return jquery.src({
         release: 2, //jQuery 2 
         flags: ['-deprecated', '-event/alias', '-ajax/script', '-ajax/jsonp', '-exports/global']
-    }).pipe(gulp.dest('./public/js/vendor/'));
+    }).pipe(gulp.dest('./public/assets/js/vendor/')).pipe(notify("déplacement de la librairie jquery"));
     // creates ./public/vendor/jquery.custom.js 
 });
 /*
