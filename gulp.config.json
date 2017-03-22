@@ -1,24 +1,24 @@
 {
-    "css": "source/assets/css/*.css"
-    , "html": [
+    "css": "source/assets/css/*.css",
+    "html": [
         "./source/*.html"
-    ]
-    , "img": "./source/assets/img/*"
-    , "translate": "./node_modules/angular-translate/dist/angular-translate.min.js"
-    , "libsCss": [
+    ],
+    "img": "./source/assets/img/*",
+    "translate": "./node_modules/angular-translate/dist/angular-translate.min.js",
+    "libsCss": [
         "./node_modules/bootstrap/dist/**/*"
-    ]
-    , "browserifyPath": "./source/app.js"
-    , "js": [
+    ],
+    "browserifyPath": "./source/app.js",
+    "js": [
         "./source/*.js"
         , "./source/**/*.js"
-    ]
-    , "public": "./public/"
-    , "components": [
+    ],
+    "public": "./public/",
+    "components": [
         "./source/components/**/*.js"
         , "./source/components/**/*.html"
-    ]
-    , "commun": "./source/commun/**/*js"
-    , "sassIn": "./source/sass/*.sass"
-    , "sassOut": "./public/assets/css/"
+    ],
+    "commun": "./source/commun/**/*js",
+    "sassIn": "./source/sass/*.sass",
+    "sassOut": "./public/assets/css/"
 }
