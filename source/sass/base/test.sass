@@ -83,3 +83,31 @@ $couleur_contour: #302557;
   -webkit-animation: moveFromBottom 500ms ease
   -moz-animation: moveFromBottom 500ms ease
   -ms-animation: moveFromBottom 500ms ease
+@-webkit-keyframes moveFromBottom
+  from
+    -webkit-transform: translateY(200%) scale(0.5)
+    opacity: 0
+
+  to
+    -webkit-transform: translateY(0%) scale(1)
+    opacity: 1
+
+
+@-moz-keyframes moveFromBottom
+  from
+    -moz-transform: translateY(200%) scale(0.5)
+    opacity: 0
+
+  to
+    -moz-transform: translateY(0%) scale(1)
+    opacity: 1
+
+
+@-ms-keyframes moveFromBottom
+  from
+    -ms-transform: translateY(200%) scale(0.5)
+    opacity: 0
+
+  to
+    -ms-transform: translateY(0%) scale(1)
+    opacity: 1
