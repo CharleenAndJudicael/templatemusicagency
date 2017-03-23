@@ -11,12 +11,12 @@
     "browserifyPath": "./source/app.js",
     "js": [
         "./source/js/*.js"
-        , "./source/**/*.js"
+        
     ],
     "public": "./public/",
     "components": [
         "./source/components/**/*.js"
-        , "./source/components/**/*.html"
+
     ],
     "commun": "./source/commun/**/*js",
     "sassIn": "./source/sass/*.sass",

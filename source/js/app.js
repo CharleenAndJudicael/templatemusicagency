@@ -14,27 +14,7 @@ jQuery(document).ready(function($) {
         $('#main-nav').removeClass('fade');
     });
 
-    // === LightGallery Home ===
-    if ($('#gallery').length>0) {
-        $("#gallery").lightGallery();
-    }
-
-    // === Footer Instagram Photos ===
-    var feedFooter = new Instafeed({
-        //get: 'tagged',
-        //tagName: 'NichifyPerspectives', // place your tage here
-        get: 'user',
-        userId: 2143300160,
-        sortBy: 'most-liked',
-        clientId: 'b65a53a5cc0540769b7cf79ea333348c', // place the client id here
-        template: '<li><a href="{{link}}" target="_blank"><img class="img-responsive" src="{{image}}" /></a></li>',
-        target: 'instragram-footer',
-        limit: 6,
-        resolution: 'low_resolution',
-    });
-    if ($('#instragram-footer').length>0) {
-        feedFooter.run();
-    }
+ 
 
     // === Sidebar Instagram Widget ===
     var feedSidebar = new Instafeed({
@@ -53,104 +33,9 @@ jQuery(document).ready(function($) {
         feedSidebar.run();
     }
 
-    // === Countdown index.html config ===
-    if ($('#countdown-home-1').length>0) {
-       $("#countdown-home-1").countdown({
-            date: "30 march 2016 12:00:00", // Edit this line
-            format: "on"
-        },
-        function() {
-          // This will run when the countdown ends
-        });
-    }
-
-    // === Countdown track.html config ===
-    if ($('#countdown-1').length>0) {
-        $("#countdown-1").countdown({
-            date: "30 march 2016 12:00:00", // Edit this line
-            format: "on"
-        },
-        function() {
-          // This will run when the countdown ends
-        });
-    }
-    if ($('#countdown-2').length>0) {
-        $("#countdown-2").countdown({
-            date: "12 march 2016 12:00:00", // Edit this line
-            format: "on"
-        },
-        function() {
-          // This will run when the countdown ends
-        });
-    }
- 
-    // === Form Validation ===
-    // Contact Page Form
-     if ($('#contact-form').length>0) {
-        $('#contact-form').validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                }
-            }, //end rules
-            messages: {
-                email: {
-                    required: "Please type a e-mail address.",
-                    email: "This is not a valid email address."
-                }
-            }
-        });// end validate 
-    }
-    //
-    // === Revolution Slider config ===
-    if ($('.slider').length>0) {
-        jQuery('.slider').revolution({
-            delay:9000,
-            startwidth:1920,
-            startheight:780,
-            //
-            fullScreenAlignForce:"off",
-            autoHeight:"off",
-            minHeight:"off",
-            //
-            fullWidth:"off",
-            forceFullWidth:"off",
-            fullScreen:"off",
-            fullScreenOffset:"0px",
-            //
-            onHoverStop:"on",
-            //
-            thumbWidth:100,
-            thumbHeight:50,
-            thumbAmount:3,
-            //
-            hideThumbsOnMobile:"on",
-            hideNavDelayOnMobile:1500,
-            hideBulletsOnMobile:"on",
-            hideArrowsOnMobile:"on",
-            hideThumbsUnderResoluition:0,
-            //
-            hideThumbs:1,
-            hideTimerBar:"on",
-            //
-            keyboardNavigation:"on",
-            //
-            navigationType:"none",
-            navigationArrows:"solo",
-            navigationStyle:"round",
-            //
-            navigationHAlign:"center",
-            navigationVAlign:"bottom",
-            navigationHOffset:30,
-            navigationVOffset:105,
-        });
-    }
     
-    // === Responsive Videos ===
-    if ($('.embed-video').length>0) {
-        $('.embed-video').fitVids();
-    }
+    
+    
 
     // === ScrollTo annimation ===
     $('.scrollTo').on('click',function (e) {
