@@ -1,4 +1,5 @@
 const CSS_STYLE = 'style.min.css';
+const JS_PLUGIN = 'plugins.min.js';
 //Variable
 var gulp = require("gulp");
 var jquery = require('gulp-jquery');
@@ -22,6 +23,7 @@ var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var concat = require('gulp-concat'); 
 // context
 var context = {
     env: 'dev', // env : gutil.env.MODE_ENV,
@@ -92,7 +94,7 @@ gulp.task("translate", function () {
 /*
  * Build application task
  */
-gulp.task('build', ['connect', 'jquery', 'sass', 'libs-css', 'minify-js', 'html', 'img']),
+gulp.task('build', ['connect', 'jquery', 'sass', 'libs-css','jsplugins', 'minify-js', 'html', 'img']),
     function () {
         gulp.start("connect");
     };
@@ -101,6 +103,14 @@ gulp.task('build', ['connect', 'jquery', 'sass', 'libs-css', 'minify-js', 'html'
 };*/
 gulp.task("default", ["clean"], function () {
     gulp.start("build");
+});
+/***
+ * concat jsplugins
+ ***/
+gulp.task('jsplugins', function() {  
+    return gulp.src(paths.components)
+        .pipe(concat(JS_PLUGIN))
+        .pipe(gulp.dest("public/assets/vendor/js/"));
 });
 /***
  *
@@ -150,17 +160,17 @@ function isProduction() {
  ***/
 gulp.task('PLUGINS_JS', function () {
     log('---------->> PLUGINS_JS TASK <<----------');
-    gulp.src(paths.jsPluginIn).pipe(count('Total JS files : <%= counter %> ')).pipe(size())
+    gulp.src(paths.components).pipe(count('Total JS files : <%= counter %> ')).pipe(size())
         //		.pipe(sourcemaps.init())
-        .pipe(concat(JS_PLUGIN)).pipe(isProduction() ? uglify() : gutil.noop()).on("finish", function () {
-            gutil.log('-----> Plugin concat ... Done !!');
+        .pipe(concat(JS_PLUGIN)).pipe( gutil.noop()).on("finish", function () {
+            gutil.log('-----> Plugin concat');
         }).pipe(size())
         //		.pipe(sourcemaps.write(paths.jsSrc))
-        .pipe(gulp.dest(paths.jsPluginOut)).pipe(notify('[PLUGINS_JS][OUT JS] ' + paths.jsPluginOut));
+        .pipe(gulp.dest('./public/assets/js/vendor/')).pipe(notify('plugins'));
     //gutil.log('[OUT SOURCE MAP] ' + paths.jsPluginOut);
 });
 
-gulp.task("minify-js", function () {
+gulp.task("minify-js-old", function () {
     return gulp.src(paths.js)
         .pipe(uglify({
             mangle: false
@@ -168,6 +178,13 @@ gulp.task("minify-js", function () {
         .pipe(gulp.dest("public/assets/js/")).pipe(notify("minify des fichiers js"));
 });
 
+gulp.task("minify-js", function () {
+    return gulp.src(paths.js).pipe(concat("app.js"))
+        .pipe(uglify({
+            mangle: false
+        }))
+        .pipe(gulp.dest("public/assets/js/")).pipe(notify("minify des fichiers js"));
+});
 
 /***
  *
