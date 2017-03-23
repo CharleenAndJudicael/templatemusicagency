@@ -24,10 +24,16 @@ var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var concat = require('gulp-concat'); 
+var gulpFilter   = require('gulp-filter');
+var autoprefixer = require('gulp-autoprefixer');
 // context
 var context = {
     env: 'dev', // env : gutil.env.MODE_ENV,
 };
+
+ // Don’t write sourcemaps of sourcemaps
+  var filter = gulpFilter(['*.css', '!*.map'], { restore: true });
+
 /*
  * Create a server
  */
@@ -110,7 +116,7 @@ gulp.task("default", ["clean"], function () {
 gulp.task('jsplugins', function() {  
     return gulp.src(paths.components)
         .pipe(concat(JS_PLUGIN))
-        .pipe(gulp.dest("public/assets/vendor/js/"));
+        .pipe(gulp.dest("./public/assets/js/vendor/"));
 });
 /***
  *
@@ -134,7 +140,8 @@ gulp.task('SASS_TO_CSS', function () {
 gulp.task('sass', function () {
     return gulp.src(paths.sassIn).pipe(sass({
         outputStyle: 'expanded'
-    }).on('error', sass.logError)).pipe(gulp.dest(paths.public + '/assets/css/')).pipe(notify("Create css file"));
+    }).on('error', sass.logError)).pipe(sourcemaps.init()).pipe(autoprefixer(paths.autoprefixer)).pipe(filter).pipe(sourcemaps.write('.'))
+    .pipe(filter.restore).pipe(gulp.dest(paths.public + '/assets/css/')).pipe(notify("Create css file"));
 });
 gulp.task('sass-sources', function () {
     return gulp.src(['sass/style.sass']).pipe(sourcemaps.init()).pipe(sass({
@@ -205,6 +212,7 @@ gulp.task('jquery', function () {
  */
 gulp.task("watch", function () {
     // Watch .sass files
+    gulp.watch(paths.js, ['minify-js']);
     gulp.watch('./**/*.sass', ['sass']);
     gulp.watch(paths.sassIn, ['sass']);
     gulp.start("connect");
